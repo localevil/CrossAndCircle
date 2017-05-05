@@ -1,3 +1,4 @@
+//Создание текстур
 #include "libs.h"
 
 class CImage

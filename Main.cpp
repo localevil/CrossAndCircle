@@ -1,3 +1,4 @@
+//Функции основного класса
 #include "Main.h"
 
 CMain::CMain()
@@ -13,12 +14,15 @@ CMain::CMain()
 	init_arr();
 
 }
+//Главный цикл
 void CMain::mainLoop()
 {
     while(!quit && csdl_setup->getMainEvent()->type != SDL_QUIT)
     {   
-
-        csdl_setup->begin();
+	//Проверка событий и отчистка рендера
+        csdl_setup->begin(); 
+	
+	//Проверка ивента мыши
 	if(SDL_WaitEventTimeout(csdl_setup->getMainEvent(),200))
 	{
         if(csdl_setup->getMainEvent()->type == SDL_MOUSEBUTTONUP)
@@ -26,8 +30,10 @@ void CMain::mainLoop()
             if(csdl_setup->getMainEvent()->button.button == SDL_BUTTON_LEFT)
             {	
 		
+		//Получение позиции мыши
                 SDL_GetMouseState(&mouse_x, &mouse_y);
-	
+
+		//Переключятел очереди хода
 		if(turn)
 		{	
 			turn = false;
@@ -42,17 +48,20 @@ void CMain::mainLoop()
         }
 	}
 
-		
+		//Проверка победителя		
 		ruls->changeArray(arr, quit);
-
+		
+		//Заполнение масива поля
             	draw_arr();
-            
+            	
+		//Отрисовка поля
         	csdl_setup->end();
 
     }
 
 }
 
+//Установка фигуры в зависимоти от игрока и положения мыши
 void CMain::drawPosition(int mouse_x,int  mouse_y, std::string file, int index)
 {
 
@@ -112,6 +121,7 @@ void CMain::drawPosition(int mouse_x,int  mouse_y, std::string file, int index)
                 }
 }
 
+//Инициализация масива игрового поля
 void CMain::init_arr()
 {
     int pos_X = 0;
@@ -127,6 +137,7 @@ void CMain::init_arr()
     }
 }
 
+//заполнение масива игрового поля
 void CMain::draw_arr()
 {
     for(int i = 0; i < 3; i++)
@@ -138,6 +149,7 @@ void CMain::draw_arr()
     }
 }
 
+//Инициализация масива проверки победителя
 void CMain::init_int_arr()
 {
     for(int i = 0; i < 3; i++)
@@ -151,7 +163,6 @@ void CMain::init_int_arr()
 
 CMain::~CMain()
 {   
-    //delete fild;
     delete csdl_setup;
 }
 

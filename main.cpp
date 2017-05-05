@@ -4,11 +4,14 @@
 
 int main()
 {
-    CMain *cmain = new CMain();
+	//Инициализация основного класса
+	CMain *cmain = new CMain();
 
-    cmain->mainLoop();
-    
-    delete cmain;
+	//Запуск основного цикла
+  	cmain->mainLoop();
+	
+	//Отчистка памяти    
+	delete cmain;
 
     return 0;
 }

@@ -1,3 +1,4 @@
+//Инициализация SDL классов
 #include "libs.h"
 
 class CSDL_Setup

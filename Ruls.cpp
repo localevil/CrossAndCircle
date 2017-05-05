@@ -1,3 +1,4 @@
+//Проверка комбинации победителя
 #include "Ruls.h"
 
 CRuls::CRuls()
@@ -5,6 +6,7 @@ CRuls::CRuls()
 	winner = 0;	
 }
 
+//Проверка и отображение победителя
 void CRuls::changeArray(int (&arr) [3] [3], bool &quit)
 {
 	
