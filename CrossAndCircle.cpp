@@ -1,5 +1,5 @@
 //Функции основного класса
-#include "Main.h"
+#include "CrossAndCircle.h"
 
 CMain::CMain()
 { 
